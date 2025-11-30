@@ -36,7 +36,7 @@
     --color-main-bg: var(--c-black);
     --color-card-bg: var(--c-grey);
     --color-button-bg: var(--c-soft-grey);
-    --color-button-hover: var(--c-greenß);
+    --color-button-hover: var(--c-green);
     --color-h1-text: var(--c-white);
     --color-h3-text: var(--c-green);
     --color-p-text: var(--c-white);
@@ -139,4 +139,9 @@ body {
   font-weight: bold;
   background-color: var(--color-button-bg);
   border-radius: 8px;
+}
+
+.socials-links a:hover {
+  background-color: var(--color-button-hover);
+  color: var(--color-main-bg);
 }
