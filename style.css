@@ -1,28 +1,57 @@
-/* Colors Values */
-:root {
-  --c-black: hsl(0, 0%, 8%);
-  --c-grey: hsl(0, 0%, 12%);
-  --c-soft-grey: hsl(0, 0%, 20%);
-  --c-green: hsl(75, 94%, 57%);
-  --c-white: hsl(0, 0%, 100%);
+@layer global {
+  /* inter-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/inter-v20-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* inter-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    src: url("/fonts/inter-v20-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* inter-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/inter-v20-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
 
-  /* Color Semantics usage */
-  --color-main-bg: var(--c-black);
-  --color-card-bg: var(--c-grey);
-  --color-button-bg: var(--c-soft-grey);
-  --color-button-hover: var(--c-greenß);
-  --color-h1-text: var(--c-white);
-  --color-h3-text: var(--c-green);
-  --color-p-text: var(--c-white);
-  --color-button-text: var(--c-white);
+  /* Colors Values */
+  :root {
+    --c-black: hsl(0, 0%, 8%);
+    --c-grey: hsl(0, 0%, 12%);
+    --c-soft-grey: hsl(0, 0%, 20%);
+    --c-green: hsl(75, 94%, 57%);
+    --c-white: hsl(0, 0%, 100%);
 
-  /* Font Sizes. Base Values */
-  --fs-14: calc(14 / 16 * 1rem);
-  --fs-24: calc(24 / 16 * 1rem);
+    /* Color Semantics usage */
+    --color-main-bg: var(--c-black);
+    --color-card-bg: var(--c-grey);
+    --color-button-bg: var(--c-soft-grey);
+    --color-button-hover: var(--c-greenß);
+    --color-h1-text: var(--c-white);
+    --color-h3-text: var(--c-green);
+    --color-p-text: var(--c-white);
+    --color-button-text: var(--c-white);
 
-  /* Font Sizes - Semanctic Use */
-  --font-size-h1: var(--fs-24);
-  --font
+    /* Font Sizes. Base Values */
+    --fs-14: calc(14 / 16 * 1rem);
+    --fs-24: calc(24 / 16 * 1rem);
+
+    /* Font Sizes - Semanctic Use */
+    --font-size-h1: var(--fs-24);
+    --font-size-h3: var(--fs-14);
+    --font-size-p: var(--fs-14);
+    --font-size-button: var(--fs-14);
+  }
 }
 
 /* Global fixes for easier responsiveness */
@@ -36,6 +65,7 @@
 /* remove link underlines */
 a {
   text-decoration: none;
+  padding: calc(12 / 16 * 1rem);
 }
 
 /* Responsive img */
@@ -48,5 +78,65 @@ svg {
 
 /* Body Defaults */
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-main-bg);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   line-height: 1.5;
+}
+
+/* Responsive Build of the Card. */
+.card-element-parent {
+  background-color: var(--color-card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(384 / 16 * 1rem);
+  border-radius: 12px;
+}
+.profile-pic img {
+  border-radius: 50%;
+  margin: 1.5rem;
+}
+.name-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.name-information h1 {
+  color: var(--color-h1-text);
+  font-size: var(--font-size-h1);
+  font-weight: bold;
+}
+.name-information h3 {
+  color: var(--color-h3-text);
+  font-size: var(--font-size-h3);
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.name-information p {
+  color: var(--color-p-text);
+  font-size: var(--font-size-p);
+  margin-bottom: 1.5rem;
+}
+.socials-links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.socials-links a {
+  width: calc(280 / 16 * 1rem);
+  display: flex;
+  justify-content: center;
+  color: var(--color-button-text);
+  font-size: var(--font-size-button);
+  font-weight: bold;
+  background-color: var(--color-button-bg);
+  border-radius: 8px;
 }
